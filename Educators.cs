@@ -7,6 +7,7 @@ public class Educators : PersonalData
 
     public List<Educators> educators = [];
 
+    //Aggregation...
     public List<Courses>ResponsibleCourses { get; set; } = new List<Courses>();
     
 
