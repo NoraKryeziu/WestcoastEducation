@@ -12,10 +12,7 @@ public class EducationalLeaders : Educators
         
 
     }
-    public EducationalLeaders(EducationalLeaders educationalLeader)
-    {
-        ListAll();
-    }
+   
     public EducationalLeaders(string socialSecurityNumber)
     {
         SocialSecurityNumber = socialSecurityNumber;
@@ -33,7 +30,7 @@ public class EducationalLeaders : Educators
     }
     public override void Find(string socialSecurityNumber)
     {
-        if(SocialSecurityNumber == "19750630-3124")
+        if(socialSecurityNumber == "19750630-3124")
         {
             SocialSecurityNumber = "19750630-3124";
             FirstName = "Maria";
@@ -45,7 +42,7 @@ public class EducationalLeaders : Educators
             FieldOfStudy = "Utbildningsledare";
             EmploymentDate = DateTime.Now.AddYears(-5).AddMonths(-4).AddDays(10);
 
-        } else if(SocialSecurityNumber == "19820313-5449")
+        } else if(socialSecurityNumber == "19820313-5449")
         {
             SocialSecurityNumber = "19820313-5449";
             FirstName = "Annika";
@@ -57,6 +54,9 @@ public class EducationalLeaders : Educators
             FieldOfStudy = "Utbildningsledare";
             EmploymentDate = DateTime.Now.AddYears(-2).AddMonths(-9);
             
+        } else 
+        {
+            Console.WriteLine("Kunde inte hitta utbildningsledare.");
         }
     }
     public override void ListAll()
@@ -66,8 +66,8 @@ public class EducationalLeaders : Educators
             Console.WriteLine(educationalLeader.ToString());
         }
     }
-   /*  public override string ToString()
+     public override string ToString()
     {
-        return $"\n{base.ToString()} Anställningsdatum: {EmploymentDate}";
-    } */
+        return $"{base.ToString()} Anställningsdatum: {EmploymentDate}";
+    } 
 }

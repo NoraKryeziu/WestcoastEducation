@@ -103,8 +103,10 @@ class Program
         Console.WriteLine("Lärare: ");
         educators.ListAll();
 
+        Console.WriteLine("");
+
         Console.WriteLine("Utbildningsledare: ");
-        educationalLeader.ListAll();
+        educationalLeaders.ListAll();
     }
 }
 
