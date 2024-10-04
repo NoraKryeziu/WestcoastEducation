@@ -23,7 +23,15 @@ public class Educators : PersonalData
    
 
     /* METHODS */
-    public void FindEducator(string SocialSecurityNumber)
+    public void Add(Educators educator)
+    {
+        educators.Add(educator);
+    }
+    public void AddResponsibleCourse(Courses course)
+    {
+        ResponsibleCourses.Add(course);
+    }
+    public virtual void Find(string SocialSecurityNumber)
     {
         if(SocialSecurityNumber == "19720814-1113")
         {
@@ -50,34 +58,26 @@ public class Educators : PersonalData
 
         }
     }
-    public void AddEducator(Educators educator)
-    {
-        educators.Add(educator);
-    }
-    public void ListAllEducators()
+    public virtual void ListAll()
     {
         foreach (var educator in educators)
         {
             Console.WriteLine(educator.ToString());
         }
     }
-
-    public void AddResponsibleCourse(Courses course)
-    {
-        ResponsibleCourses.Add(course);
-    }
     public override string ToString()
     {
-        string responsibleCoursesString = ""; 
+        string responsibleCourses = ""; 
         foreach(var course in ResponsibleCourses)
         {
-            if (responsibleCoursesString != "")
+            if (responsibleCourses != "")
             {
-                responsibleCoursesString += ", ";
+                responsibleCourses += ", ";
             }
-            responsibleCoursesString += course.Title;
+            responsibleCourses += course.Title;
         }
-        return $"{base.ToString()} Kunskapsområde: {FieldOfStudy}, Ansvarig för kurserna: {responsibleCoursesString}";
+        return $"{base.ToString()} Kunskapsområde: {FieldOfStudy}, Ansvarig för kurserna: {responsibleCourses}";
     }
+
 }
 

@@ -21,21 +21,10 @@ public class Courses
     {
         courseList.Add(course);
     }
-    public void ListAllCourses()
-    {
-        foreach (var courses in courseList)
-        {
-            Console.WriteLine(courses.ToString());
-        }
-    }
-    public override string ToString()
-    {
-        return $"{Title} {Number}: Start datum: {StartDate} Slut datum: {EndDate} Antal dagar: {Length} Plats: {(Classroom)} ";
-    }
-    public void FindCourse (int Number)
+    public void FindCourse (int number)
     {
        
-        if (Number == 121)
+        if (number == 121)
         {
             Number = 121;
             Title = "Självledarskap grund";
@@ -45,7 +34,7 @@ public class Courses
             Classroom = true;
             
         }
-        else if(Number == 122)
+        else if(number == 122)
         {
             Number = 122;
             Title = "Programmering C#/.NET, grund";
@@ -54,7 +43,7 @@ public class Courses
             EndDate = StartDate.AddDays(Length);
             Classroom = false;
         }
-        else if(Number == 123)
+        else if(number == 123)
         {
             Number = 123;
             Title = "Databasteknik";
@@ -67,6 +56,18 @@ public class Courses
         {
             Console.WriteLine("Kunde inte hitta kursen.");
         }
+    }
+    public void ListAllCourses()
+    {
+        foreach (var courses in courseList)
+        {
+            Console.WriteLine(courses.ToString());
+        }
+    }
+    public override string ToString()
+    {
+        string location = Classroom == true? "Klassrum" : "Distans";
+        return $"{Title} {Number}: Start datum: {StartDate} Slut datum: {EndDate} Antal dagar: {Length} Plats: {location} ";
     }
 
 }

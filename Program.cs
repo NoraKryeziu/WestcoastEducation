@@ -7,6 +7,7 @@ class Program
         Courses courses = new Courses();
         Students students = new Students();
         Educators educators = new Educators();
+        EducationalLeaders educationalLeaders = new EducationalLeaders();
 
         //Lägg till elever i listan med elever
         Students student;
@@ -40,8 +41,15 @@ class Program
         Educators educator;
 
         educator = new Educators();
-        educator.FindEducator("19720814-1113");
-        educators.AddEducator(educator);
+        educator.Find("19720814-1113");
+        educators.Add(educator);
+
+        //Lägg till utbildningsledare i listan för utbildningsledare...
+        EducationalLeaders educationalLeader;
+
+        educationalLeader = new EducationalLeaders();
+        educationalLeader.Find("19750630-3124");
+        educationalLeaders.Add(educationalLeader);
 
         //Lägg till kurser till listan med kurser
         Courses course;
@@ -52,11 +60,18 @@ class Program
 
         //Lägg till kursen till ansvarig lärare...
         educator.AddResponsibleCourse(course);
+        //Lägg till kursen till ansvarig utbildningsledare...
+        educationalLeader.AddResponsibleCourse(course);
 
         //Lägg till lärare i listan för lärare
         educator = new Educators();
-        educator.FindEducator("19681201-2279");
-        educators.AddEducator(educator);
+        educator.Find("19681201-2279");
+        educators.Add(educator);
+
+        //Lägg till utbildningsledare i listan för utbildningsledare...
+        educationalLeader = new EducationalLeaders();
+        educationalLeader.Find("19820313-5449");
+        educationalLeaders.Add(educationalLeader);
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
@@ -65,6 +80,8 @@ class Program
 
         //Lägg till kursen till ansvarig lärare...
         educator.AddResponsibleCourse(course);
+        //Lägg till kursen till ansvarig utbildningsledare...
+        educationalLeader.AddResponsibleCourse(course);
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
@@ -73,15 +90,27 @@ class Program
 
         //Lägg till kursen till ansvarig lärare...
         educator.AddResponsibleCourse(course);
+        //Lägg till kursen till ansvarig utbildningsledare...
+        educationalLeader.AddResponsibleCourse(course);
 
         Console.WriteLine("");
 
-        Console.WriteLine("Alla kurser: ");
+        Console.WriteLine("Kurser: ");
         courses.ListAllCourses();
 
         Console.WriteLine("");
     
         Console.WriteLine("Lärare: ");
-        educators.ListAllEducators();
+        educators.ListAll();
+
+        Console.WriteLine("Utbildningsledare: ");
+        educationalLeader.ListAll();
     }
 }
+
+
+
+
+
+
+        
