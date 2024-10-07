@@ -1,4 +1,7 @@
-﻿namespace WestcoastEducation;
+﻿using System.Text.Encodings.Web;
+using System.Text.Json;
+
+namespace WestcoastEducation;
 
 class Program
 {
@@ -125,6 +128,18 @@ class Program
         Console.ResetColor();
         employees.ListAllAdministrators();
 
+        
+
+        var options = new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+            WriteIndented = true
+
+        };
+        var json = JsonSerializer.Serialize(courses, options);
+        var path = string.Concat(Environment.CurrentDirectory + "/Data/courses.json");
+        File.WriteAllText(path,json);
     }
 }
 
