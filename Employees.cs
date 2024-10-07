@@ -1,8 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿namespace WestcoastEducation;
 
-namespace WestcoastEducation;
-
-public class Employees : PersonalData
+public class Employees : PersonalData , IFind
 {
     /* PROPERTIES */
     public string? FieldOfStudy { get; set; } 

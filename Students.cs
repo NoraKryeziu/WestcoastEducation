@@ -1,6 +1,6 @@
 ﻿namespace WestcoastEducation;
 
-public class Students : PersonalData
+public class Students : PersonalData , IFind
 {
     public List<Students> students = [];
    
@@ -21,7 +21,7 @@ public class Students : PersonalData
     {
         return $"{base.ToString()}\n";
     }
-    public void FindStudent(string socialSecurityNumber)
+    public void Find(string socialSecurityNumber)
     {
         if(socialSecurityNumber == "19980731-1223")
         {

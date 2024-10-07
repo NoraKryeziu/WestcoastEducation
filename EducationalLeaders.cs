@@ -1,6 +1,6 @@
 ﻿namespace WestcoastEducation;
 
-public class EducationalLeaders : Educators 
+public class EducationalLeaders : Educators , IFind
 {
     /* PROPERTIES */
     public DateTime EmploymentDate { get; set; } 

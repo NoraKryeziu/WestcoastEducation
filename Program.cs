@@ -15,23 +15,23 @@ class Program
         Students student;
 
         student = new Students();
-        student.FindStudent("19980731-1223");
+        student.Find("19980731-1223");
         students.AddStudent(student);
 
         student = new Students();
-        student.FindStudent("19920519-2374");
+        student.Find("19920519-2374");
         students.AddStudent(student);
 
         student = new Students();
-        student.FindStudent("19950109-2664");
+        student.Find("19950109-2664");
         students.AddStudent(student);
 
         student = new Students();
-        student.FindStudent("19990421-2772");
+        student.Find("19990421-2772");
         students.AddStudent(student);
 
         student = new Students();
-        student.FindStudent("20000121-3165");
+        student.Find("20000121-3165");
         students.AddStudent(student);
         
         Console.ForegroundColor = ConsoleColor.DarkBlue;
@@ -40,16 +40,19 @@ class Program
         Console.ResetColor();
         students.ListAllStudents();
 
+        //Lägg till lärare i listan för lärare
         Educators educator;
         educator = new Educators();
         educator.Find("19720814-1113");
         employees.AddEducators(educator);
         
+        //Lägg till utbildningsledare i listan för utbildningsledare...
         EducationalLeaders educationalLeader;
         educationalLeader = new EducationalLeaders();
         educationalLeader.Find("19750630-3124");
         employees.AddEducationalLeader(educationalLeader);
 
+        //Lägg till administratör i listan för administratör... 
         Administrators administrator;
         administrator = new Administrators();
         administrator.Find("19700222-6221");
@@ -59,10 +62,10 @@ class Program
         Courses course;
 
         course = new Courses();
-        course.FindCourse(121);
+        course.Find(121);
         courses.AddCourse(course);
 
-        //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
+        //Lägg till kursen till ansvarig lärare , utbildningsledare  och administratör...
         educator.AddResponsibleCourse(course);
         educationalLeader.AddResponsibleCourse(course);
         administrator.AddResponsibleCourse(course);
@@ -79,7 +82,7 @@ class Program
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
-        course.FindCourse(122);
+        course.Find(122);
         courses.AddCourse(course);
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
@@ -89,7 +92,7 @@ class Program
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
-        course.FindCourse(123);
+        course.Find(123);
         courses.AddCourse(course);
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...

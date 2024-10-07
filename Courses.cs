@@ -1,10 +1,10 @@
 ﻿namespace WestcoastEducation;
 
-public class Courses
+public class Courses : IFind
 {
     /* PROPERTIES */
     public int Number { get; set; }
-    public string Title { get; set; } = "";
+    public string? Title { get; set; } 
     public int Length { get; set; } 
     public DateTime StartDate { get; set; } 
     public DateTime EndDate { get; set; }
@@ -21,7 +21,7 @@ public class Courses
     {
         courseList.Add(course);
     }
-    public void FindCourse (int number)
+    public void Find (int number)
     {
        
         if (number == 121)

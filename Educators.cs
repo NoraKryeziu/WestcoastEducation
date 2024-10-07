@@ -1,6 +1,6 @@
 ﻿namespace WestcoastEducation;
 
-public class Educators : Employees 
+public class Educators : Employees, IFind
 {
 
 

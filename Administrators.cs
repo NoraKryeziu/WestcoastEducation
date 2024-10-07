@@ -1,6 +1,6 @@
 ﻿namespace WestcoastEducation;
 
-public class Administrators : EducationalLeaders
+public class Administrators : EducationalLeaders , IFind
 {
    /* PROPERTIES */
   
