@@ -4,30 +4,11 @@ public class EducationalLeaders : Educators
 {
     /* PROPERTIES */
     public DateTime EmploymentDate { get; set; } 
-    public List<EducationalLeaders> educationalLeaders = [];
 
-    /* CONSTRUCTOR */
-    public EducationalLeaders() 
-    {
-        
 
-    }
-   
-    public EducationalLeaders(string socialSecurityNumber)
-    {
-        SocialSecurityNumber = socialSecurityNumber;
-        Find(socialSecurityNumber);
-    }
-    public EducationalLeaders(Courses course)
-    {
-        AddResponsibleCourse(course);
-    }
 
     /* METHODS */
-    public void Add(EducationalLeaders educationalLeader)
-    {
-        educationalLeaders.Add(educationalLeader);
-    }
+
     public override void Find(string socialSecurityNumber)
     {
         if(socialSecurityNumber == "19750630-3124")
@@ -59,15 +40,8 @@ public class EducationalLeaders : Educators
             Console.WriteLine("Kunde inte hitta utbildningsledare.");
         }
     }
-    public override void ListAll()
-    {
-        foreach (var educationalLeader in educationalLeaders)
-        {
-            Console.WriteLine(educationalLeader.ToString());
-        }
-    }
      public override string ToString()
     {
-        return $"{base.ToString()} Anställningsdatum: {EmploymentDate}";
+        return $"{base.ToString()} Anställningsdatum: {EmploymentDate}\n";
     } 
 }

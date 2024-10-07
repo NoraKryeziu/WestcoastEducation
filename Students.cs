@@ -19,11 +19,11 @@ public class Students : PersonalData
     }
     public override string ToString()
     {
-        return $"{base.ToString()}";
+        return $"{base.ToString()}\n";
     }
-    public void FindStudent(string SocialSecurityNumber)
+    public void FindStudent(string socialSecurityNumber)
     {
-        if(SocialSecurityNumber == "19980731-1223")
+        if(socialSecurityNumber == "19980731-1223")
         {
             SocialSecurityNumber = "19980731-1223";
             FirstName = "Amanda";
@@ -33,7 +33,7 @@ public class Students : PersonalData
             PostalCode = "411 07";
             City = "Göteborg";
 
-        } else if(SocialSecurityNumber == "19920519-2374")
+        } else if(socialSecurityNumber == "19920519-2374")
         {
             SocialSecurityNumber = "19920519-2374";
             FirstName = "Theodor";
@@ -43,7 +43,7 @@ public class Students : PersonalData
             PostalCode = "411 02";
             City = "Göteborg";
 
-        } else if (SocialSecurityNumber == "19950109-2664")
+        } else if (socialSecurityNumber == "19950109-2664")
         {
             SocialSecurityNumber = "19950109-2664";
             FirstName = "Evelina";
@@ -53,7 +53,7 @@ public class Students : PersonalData
             PostalCode = "411 22";
             City = "Göteborg";
 
-        } else if(SocialSecurityNumber == "19990421-2772")
+        } else if(socialSecurityNumber == "19990421-2772")
         {
             SocialSecurityNumber = "19990421-2772";
             FirstName = "Adrian";
@@ -63,7 +63,7 @@ public class Students : PersonalData
             PostalCode = "411 03";
             City = "Göteborg";
 
-        } else if (SocialSecurityNumber == "20000121-3165")
+        } else if (socialSecurityNumber == "20000121-3165")
         {
             SocialSecurityNumber = "20000121-3165";
             FirstName = "Tova";

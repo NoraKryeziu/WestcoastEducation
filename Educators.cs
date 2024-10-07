@@ -1,39 +1,13 @@
 ﻿namespace WestcoastEducation;
 
-public class Educators : PersonalData 
+public class Educators : Employees 
 {
-    /* PROPERTIES */
-    public string FieldOfStudy { get; set; } = ""; 
 
-    public List<Educators> educators = [];
-
-    //Aggregation...
-    public List<Courses>ResponsibleCourses { get; set; } = new List<Courses>();
-    
-
-    /* CONSTRUCTOR */
-    public Educators()
-    {
-    }
-
-    public Educators(Courses courses)
-    {
-        Courses Courses = courses;
-    }
-   
 
     /* METHODS */
-    public void Add(Educators educator)
+    public override void Find(string socialSecurityNumber)
     {
-        educators.Add(educator);
-    }
-    public void AddResponsibleCourse(Courses course)
-    {
-        ResponsibleCourses.Add(course);
-    }
-    public virtual void Find(string SocialSecurityNumber)
-    {
-        if(SocialSecurityNumber == "19720814-1113")
+        if(socialSecurityNumber == "19720814-1113")
         {
             SocialSecurityNumber = "19720814-1113";
             FirstName = "Thomas";
@@ -44,7 +18,7 @@ public class Educators : PersonalData
             City = "Göteborg";
             FieldOfStudy = "Organisation och ledarskap";
 
-        } else if(SocialSecurityNumber == "19681201-2279")
+        } else if(socialSecurityNumber == "19681201-2279")
         {
             SocialSecurityNumber = "19681201-2279";
             FirstName = "Martin";
@@ -58,25 +32,9 @@ public class Educators : PersonalData
 
         }
     }
-    public virtual void ListAll()
-    {
-        foreach (var educator in educators)
-        {
-            Console.WriteLine(educator.ToString());
-        }
-    }
     public override string ToString()
     {
-        string responsibleCourses = ""; 
-        foreach(var course in ResponsibleCourses)
-        {
-            if (responsibleCourses != "")
-            {
-                responsibleCourses += ", ";
-            }
-            responsibleCourses += course.Title;
-        }
-        return $"{base.ToString()} Kunskapsområde: {FieldOfStudy}, Ansvarig för kurserna: {responsibleCourses}";
+        return $"{base.ToString()}\n";
     }
 
 }

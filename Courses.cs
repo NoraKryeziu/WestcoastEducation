@@ -67,7 +67,7 @@ public class Courses
     public override string ToString()
     {
         string location = Classroom == true? "Klassrum" : "Distans";
-        return $"{Title} {Number}: Start datum: {StartDate} Slut datum: {EndDate} Antal dagar: {Length} Plats: {location} ";
+        return $"{Title} {Number}: Start datum: {StartDate} Slut datum: {EndDate} Antal dagar: {Length} Plats: {location}\n";
     }
 
 }

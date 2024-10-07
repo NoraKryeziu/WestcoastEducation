@@ -14,6 +14,6 @@ public class PersonalData
     /* METHODS  */
     public override string ToString()
     {
-        return $"Namn: {FirstName} {Surname} Telefon: {Phone} Adress: {Address}, {PostalCode} {City}";
+        return $"Namn: {FirstName} {Surname} Personnummer: {SocialSecurityNumber} Telefon: {Phone} Adress: {Address}, {PostalCode} {City}";
     }
 }

@@ -8,6 +8,8 @@ class Program
         Students students = new Students();
         Educators educators = new Educators();
         EducationalLeaders educationalLeaders = new EducationalLeaders();
+        Administrators administrators = new Administrators();
+        Employees employees = new Employees();
 
         //Lägg till elever i listan med elever
         Students student;
@@ -31,25 +33,27 @@ class Program
         student = new Students();
         student.FindStudent("20000121-3165");
         students.AddStudent(student);
-    
-        Console.WriteLine("");
         
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("Studenter: ");
+        Console.WriteLine("---------------------------------------------");
+        Console.ResetColor();
         students.ListAllStudents();
 
-        //Lägg till lärare i listan för lärare
         Educators educator;
-
         educator = new Educators();
         educator.Find("19720814-1113");
-        educators.Add(educator);
-
-        //Lägg till utbildningsledare i listan för utbildningsledare...
+        employees.AddEducators(educator);
+        
         EducationalLeaders educationalLeader;
-
         educationalLeader = new EducationalLeaders();
         educationalLeader.Find("19750630-3124");
-        educationalLeaders.Add(educationalLeader);
+        employees.AddEducationalLeader(educationalLeader);
+
+        Administrators administrator;
+        administrator = new Administrators();
+        administrator.Find("19700222-6221");
+        employees.AddAdministrator(administrator);
 
         //Lägg till kurser till listan med kurser
         Courses course;
@@ -58,55 +62,66 @@ class Program
         course.FindCourse(121);
         courses.AddCourse(course);
 
-        //Lägg till kursen till ansvarig lärare...
+        //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
-        //Lägg till kursen till ansvarig utbildningsledare...
         educationalLeader.AddResponsibleCourse(course);
+        administrator.AddResponsibleCourse(course);
 
         //Lägg till lärare i listan för lärare
         educator = new Educators();
         educator.Find("19681201-2279");
-        educators.Add(educator);
+        employees.AddEducators(educator);
 
         //Lägg till utbildningsledare i listan för utbildningsledare...
         educationalLeader = new EducationalLeaders();
         educationalLeader.Find("19820313-5449");
-        educationalLeaders.Add(educationalLeader);
+        employees.AddEducationalLeader(educationalLeader);
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
         course.FindCourse(122);
         courses.AddCourse(course);
 
-        //Lägg till kursen till ansvarig lärare...
+        //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
-        //Lägg till kursen till ansvarig utbildningsledare...
         educationalLeader.AddResponsibleCourse(course);
+        administrator.AddResponsibleCourse(course);
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
         course.FindCourse(123);
         courses.AddCourse(course);
 
-        //Lägg till kursen till ansvarig lärare...
+        //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
-        //Lägg till kursen till ansvarig utbildningsledare...
         educationalLeader.AddResponsibleCourse(course);
+        administrator.AddResponsibleCourse(course);
 
-        Console.WriteLine("");
-
-        Console.WriteLine("Kurser: ");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine("\nKurser: ");
+        Console.WriteLine("---------------------------------------------");
+        Console.ResetColor();
         courses.ListAllCourses();
 
-        Console.WriteLine("");
-    
-        Console.WriteLine("Lärare: ");
-        educators.ListAll();
 
-        Console.WriteLine("");
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.WriteLine("\nLärare: ");
+        Console.WriteLine("---------------------------------------------");
+        Console.ResetColor();
+        employees.ListAllEducators();
 
-        Console.WriteLine("Utbildningsledare: ");
-        educationalLeaders.ListAll();
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("\nUtbildningsledare: ");
+        Console.WriteLine("---------------------------------------------");
+        Console.ResetColor();
+        employees.ListAllEducationalLeaders();
+
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.WriteLine("\nAdministratör:: ");
+        Console.WriteLine("---------------------------------------------");
+        Console.ResetColor();
+        employees.ListAllAdministrators();
+
     }
 }
 
