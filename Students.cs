@@ -1,25 +1,14 @@
 ﻿namespace WestcoastEducation;
 
-public class Students : PersonalData , IFind
+public class Students : PersonalData , IManage
 {
     public List<Students> students = [];
    
 
     /* METHODS */
-    public void AddStudent(Students student)
+    public void Add(Students student)
     {
         students.Add(student);
-    }
-    public void ListAllStudents()
-    {
-        foreach (var student in students)
-        {
-            Console.WriteLine(student.ToString());
-        }
-    }
-    public override string ToString()
-    {
-        return $"{base.ToString()}\n";
     }
     public void Find(string socialSecurityNumber)
     {
@@ -77,5 +66,16 @@ public class Students : PersonalData , IFind
         {
             Console.WriteLine("Kunde inte hitta eleven.");
         }
+    }
+    public void ListAll()
+    {
+        foreach (var student in students)
+        {
+            Console.WriteLine(student.ToString());
+        }
+    }
+    public override string ToString()
+    {
+        return $"{base.ToString()}\n";
     }
 }

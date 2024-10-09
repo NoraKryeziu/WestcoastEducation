@@ -1,8 +1,26 @@
-{
-  "number": 0,
-  "title": null,
-  "length": 0,
-  "startDate": "0001-01-01T00:00:00",
-  "endDate": "0001-01-01T00:00:00",
-  "classroom": false
-}
+[
+  {
+    "number": 121,
+    "title": "Självledarskap grund",
+    "length": 7,
+    "startDate": "2024-10-09T14:56:23.8216284+02:00",
+    "endDate": "2024-10-16T14:56:23.8216284+02:00",
+    "classroom": true
+  },
+  {
+    "number": 122,
+    "title": "Programmering C#/.NET, grund",
+    "length": 56,
+    "startDate": "2024-10-16T14:56:23.8217703+02:00",
+    "endDate": "2024-12-11T14:56:23.8217703+01:00",
+    "classroom": false
+  },
+  {
+    "number": 123,
+    "title": "Databasteknik",
+    "length": 56,
+    "startDate": "2024-12-11T14:56:23.8217711+01:00",
+    "endDate": "2025-02-05T14:56:23.8217711+01:00",
+    "classroom": true
+  }
+]

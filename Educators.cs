@@ -1,10 +1,16 @@
 ﻿namespace WestcoastEducation;
 
-public class Educators : Employees, IFind
+public class Educators : Employees, IManage
 {
-
+    /* PROPERTIES */
+    public List<Educators> educators = [];
 
     /* METHODS */
+
+    public void Add(Educators educator)
+    {
+        educators.Add(educator);
+    }
     public override void Find(string socialSecurityNumber)
     {
         if(socialSecurityNumber == "19720814-1113")
@@ -30,6 +36,13 @@ public class Educators : Employees, IFind
             FieldOfStudy = "Systemutveckling";
             
 
+        }
+    }
+     public override void ListAll()
+    {
+        foreach (var educator in educators)
+        {
+            Console.WriteLine(educator.ToString());
         }
     }
     public override string ToString()

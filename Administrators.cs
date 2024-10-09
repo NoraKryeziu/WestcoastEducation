@@ -1,11 +1,15 @@
 ﻿namespace WestcoastEducation;
 
-public class Administrators : EducationalLeaders , IFind
+public class Administrators : EducationalLeaders , IManage
 {
    /* PROPERTIES */
-  
+  public List<Administrators> administrators = [];
 
    /* METHODS */
+   public void Add(Administrators administrator)
+    {
+        administrators.Add(administrator);
+    }
 
    public override void Find(string socialSecurityNumber)
    {
@@ -27,7 +31,12 @@ public class Administrators : EducationalLeaders , IFind
          Console.WriteLine("Kunde inte hitta administratör.");
       }
    }
-
+   public override void ListAll(){
+        foreach (var administrator in administrators)
+        {
+            Console.WriteLine(administrator.ToString());
+        }
+    }
         public override string ToString()
     {
         return $"{base.ToString()}";

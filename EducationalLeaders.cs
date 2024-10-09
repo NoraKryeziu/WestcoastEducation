@@ -1,13 +1,19 @@
 ﻿namespace WestcoastEducation;
 
-public class EducationalLeaders : Educators , IFind
+public class EducationalLeaders : Educators , IManage
 {
     /* PROPERTIES */
     public DateTime EmploymentDate { get; set; } 
+    public List<EducationalLeaders> educationalLeaders = [];
 
 
 
     /* METHODS */
+
+    public void Add(EducationalLeaders educationalLeader)
+    {
+        educationalLeaders.Add(educationalLeader);
+    }
 
     public override void Find(string socialSecurityNumber)
     {
@@ -40,8 +46,15 @@ public class EducationalLeaders : Educators , IFind
             Console.WriteLine("Kunde inte hitta utbildningsledare.");
         }
     }
+    public override void ListAll()
+    {
+        foreach (var educationalLeader in educationalLeaders)
+        {
+            Console.WriteLine(educationalLeader.ToString());
+        }
+    }
      public override string ToString()
     {
-        return $"{base.ToString()} Anställningsdatum: {EmploymentDate}\n";
+        return $"{base.ToString()}Anställningsdatum: {EmploymentDate}\n";
     } 
 }

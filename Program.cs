@@ -1,7 +1,4 @@
-﻿using System.Text.Encodings.Web;
-using System.Text.Json;
-
-namespace WestcoastEducation;
+﻿namespace WestcoastEducation;
 
 class Program
 {
@@ -11,62 +8,63 @@ class Program
         Students students = new Students();
         Educators educators = new Educators();
         EducationalLeaders educationalLeaders = new EducationalLeaders();
-        Administrators administrators = new Administrators();
-        Employees employees = new Employees();
+        Administrators administrators = new Administrators(); 
+        var courseList = new List<Courses>();
 
         //Lägg till elever i listan med elever
         Students student;
 
         student = new Students();
         student.Find("19980731-1223");
-        students.AddStudent(student);
+        students.Add(student);
 
         student = new Students();
         student.Find("19920519-2374");
-        students.AddStudent(student);
+        students.Add(student);
 
         student = new Students();
         student.Find("19950109-2664");
-        students.AddStudent(student);
+        students.Add(student);
 
         student = new Students();
         student.Find("19990421-2772");
-        students.AddStudent(student);
+        students.Add(student);
 
         student = new Students();
         student.Find("20000121-3165");
-        students.AddStudent(student);
+        students.Add(student);
         
         Console.ForegroundColor = ConsoleColor.DarkBlue;
         Console.WriteLine("Studenter: ");
         Console.WriteLine("---------------------------------------------");
         Console.ResetColor();
-        students.ListAllStudents();
+        students.ListAll();
 
         //Lägg till lärare i listan för lärare
         Educators educator;
         educator = new Educators();
         educator.Find("19720814-1113");
-        employees.AddEducators(educator);
+        educators.Add(educator);
         
         //Lägg till utbildningsledare i listan för utbildningsledare...
         EducationalLeaders educationalLeader;
         educationalLeader = new EducationalLeaders();
         educationalLeader.Find("19750630-3124");
-        employees.AddEducationalLeader(educationalLeader);
+        educationalLeaders.Add(educationalLeader);
 
         //Lägg till administratör i listan för administratör... 
         Administrators administrator;
         administrator = new Administrators();
         administrator.Find("19700222-6221");
-        employees.AddAdministrator(administrator);
+        administrators.Add(administrator);
 
         //Lägg till kurser till listan med kurser
         Courses course;
 
         course = new Courses();
         course.Find(121);
-        courses.AddCourse(course);
+        courses.Add(course);
+        courseList.Add(course);
 
         //Lägg till kursen till ansvarig lärare , utbildningsledare  och administratör...
         educator.AddResponsibleCourse(course);
@@ -76,17 +74,18 @@ class Program
         //Lägg till lärare i listan för lärare
         educator = new Educators();
         educator.Find("19681201-2279");
-        employees.AddEducators(educator);
+        educators.Add(educator);
 
         //Lägg till utbildningsledare i listan för utbildningsledare...
         educationalLeader = new EducationalLeaders();
         educationalLeader.Find("19820313-5449");
-        employees.AddEducationalLeader(educationalLeader);
+        educationalLeaders.Add(educationalLeader);
 
         //Lägg till kurser till listan med kurser
         course = new Courses();
         course.Find(122);
-        courses.AddCourse(course);
+        courses.Add(course);
+        courseList.Add(course);
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
@@ -96,7 +95,8 @@ class Program
         //Lägg till kurser till listan med kurser
         course = new Courses();
         course.Find(123);
-        courses.AddCourse(course);
+        courses.Add(course);
+        courseList.Add(course);
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
@@ -107,39 +107,46 @@ class Program
         Console.WriteLine("\nKurser: ");
         Console.WriteLine("---------------------------------------------");
         Console.ResetColor();
-        courses.ListAllCourses();
+        courses.ListAll();
+
+        /* Json utskrift */
+        var path = string.Concat(Environment.CurrentDirectory + "/Data/courses.json");
+        Json.WriteJson(path,courseList);
+
+        var coursesFromFile = Json.ReadJson(path);            
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
+        Console.WriteLine("***************************");
+        Console.WriteLine("JSON");
+        Console.WriteLine("Kurser:");
+
+        foreach(var jsonCourses in coursesFromFile)
+        {
+            Console.WriteLine("");
+            Console.WriteLine(jsonCourses);
+
+        }
+        Console.WriteLine("*****************************");
+        /* ***************************** */
 
 
         Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine("\nLärare: ");
         Console.WriteLine("---------------------------------------------");
         Console.ResetColor();
-        employees.ListAllEducators();
+        educators.ListAll();
 
         Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine("\nUtbildningsledare: ");
         Console.WriteLine("---------------------------------------------");
         Console.ResetColor();
-        employees.ListAllEducationalLeaders();
+        educationalLeaders.ListAll();
 
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.WriteLine("\nAdministratör:: ");
         Console.WriteLine("---------------------------------------------");
         Console.ResetColor();
-        employees.ListAllAdministrators();
+        administrators.ListAll();
 
-        
-
-        var options = new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-            WriteIndented = true
-
-        };
-        var json = JsonSerializer.Serialize(courses, options);
-        var path = string.Concat(Environment.CurrentDirectory + "/Data/courses.json");
-        File.WriteAllText(path,json);
     }
 }
 

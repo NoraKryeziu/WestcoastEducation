@@ -1,6 +1,6 @@
 ﻿namespace WestcoastEducation;
 
-public class Courses : IFind
+public class Courses : IManage
 {
     /* PROPERTIES */
     public int Number { get; set; }
@@ -17,7 +17,7 @@ public class Courses : IFind
     public Courses(){}
 
     /* METHODS */
-    public void AddCourse (Courses course)
+    public void Add (Courses course)
     {
         courseList.Add(course);
     }
@@ -57,7 +57,7 @@ public class Courses : IFind
             Console.WriteLine("Kunde inte hitta kursen.");
         }
     }
-    public void ListAllCourses()
+    public void ListAll()
     {
         foreach (var courses in courseList)
         {
