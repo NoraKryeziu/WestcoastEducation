@@ -62,9 +62,9 @@ public class Students : PersonalData , IManage
             PostalCode = "417 21 ";
             City = "Göteborg";
 
-        } else 
+        }else
         {
-            Console.WriteLine("Kunde inte hitta eleven.");
+            Console.WriteLine("Kunde inte hitta studenten.");
         }
     }
     public void ListAll()

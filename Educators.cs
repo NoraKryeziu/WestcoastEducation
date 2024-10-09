@@ -34,8 +34,9 @@ public class Educators : Employees, IManage
             PostalCode = "411 18";
             City = "Göteborg";
             FieldOfStudy = "Systemutveckling";
-            
-
+        } else
+        {
+            Console.WriteLine("Kunde inte hitta läraren.");
         }
     }
      public override void ListAll()

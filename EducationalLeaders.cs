@@ -41,7 +41,7 @@ public class EducationalLeaders : Educators , IManage
             FieldOfStudy = "Utbildningsledare";
             EmploymentDate = DateTime.Now.AddYears(-2).AddMonths(-9);
             
-        } else 
+        } else
         {
             Console.WriteLine("Kunde inte hitta utbildningsledare.");
         }

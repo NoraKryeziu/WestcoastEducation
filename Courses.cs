@@ -51,8 +51,7 @@ public class Courses : IManage
             Length = 56;
             EndDate = StartDate.AddDays(Length);
             Classroom = true;
-        }
-        else 
+        } else
         {
             Console.WriteLine("Kunde inte hitta kursen.");
         }

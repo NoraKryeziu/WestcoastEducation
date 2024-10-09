@@ -10,7 +10,7 @@ class Program
         EducationalLeaders educationalLeaders = new EducationalLeaders();
         Administrators administrators = new Administrators(); 
         var courseList = new List<Courses>();
-
+    
         //Lägg till elever i listan med elever
         Students student;
 
@@ -98,11 +98,12 @@ class Program
         courses.Add(course);
         courseList.Add(course);
 
+
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
         educationalLeader.AddResponsibleCourse(course);
         administrator.AddResponsibleCourse(course);
-
+    
         Console.ForegroundColor = ConsoleColor.DarkYellow;
         Console.WriteLine("\nKurser: ");
         Console.WriteLine("---------------------------------------------");

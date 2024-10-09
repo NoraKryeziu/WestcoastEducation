@@ -26,10 +26,9 @@ public class Administrators : EducationalLeaders , IManage
          EmploymentDate = DateTime.Now.AddYears(-7).AddMonths(-2).AddDays(20);
 
       }
-      else
-      {
-         Console.WriteLine("Kunde inte hitta administratör.");
-      }
+      else{
+            Console.WriteLine("Kunde inte hitta administratör.");
+        }
    }
    public override void ListAll(){
         foreach (var administrator in administrators)
