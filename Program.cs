@@ -9,7 +9,6 @@ class Program
         Educators educators = new Educators();
         EducationalLeaders educationalLeaders = new EducationalLeaders();
         Administrators administrators = new Administrators(); 
-        var courseList = new List<Courses>();
     
         //Lägg till elever i listan med elever
         Students student;
@@ -64,7 +63,6 @@ class Program
         course = new Courses();
         course.Find(121);
         courses.Add(course);
-        courseList.Add(course);
 
         //Lägg till kursen till ansvarig lärare , utbildningsledare  och administratör...
         educator.AddResponsibleCourse(course);
@@ -85,7 +83,7 @@ class Program
         course = new Courses();
         course.Find(122);
         courses.Add(course);
-        courseList.Add(course);
+
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
         educator.AddResponsibleCourse(course);
@@ -96,7 +94,6 @@ class Program
         course = new Courses();
         course.Find(123);
         courses.Add(course);
-        courseList.Add(course);
 
 
         //Lägg till kursen till ansvarig lärare, utbildningsledare och administratör...
@@ -112,7 +109,7 @@ class Program
 
         /* Json utskrift */
         var path = string.Concat(Environment.CurrentDirectory + "/Data/courses.json");
-        Json.WriteJson(path,courseList);
+        Json.WriteJson(path,courses.courseList);
 
         var coursesFromFile = Json.ReadJson(path);            
         Console.ForegroundColor = ConsoleColor.DarkCyan;
